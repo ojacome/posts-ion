@@ -8,8 +8,16 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'posts',
     pathMatch: 'full'
+  },
+  {
+    path: 'posts',
+    loadChildren: () => import('./posts/posts.module').then( m => m.PostsPageModule)
+  },
+  {
+    path: 'posts-form',
+    loadChildren: () => import('./posts-form/posts-form.module').then( m => m.PostsFormPageModule)
   },
 ];
 
