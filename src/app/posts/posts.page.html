@@ -22,7 +22,7 @@
             <ion-button (click)="onClick()" color="primary" fill="outline" expand="block">
               Update
             </ion-button>
-            <ion-button (click)="onClick()" color="danger" expand="block" fill="outline">
+            <ion-button (click)="delete(p.id)" color="danger" expand="block" fill="outline">
               Delete
             </ion-button>
           </ion-card-content>
@@ -33,7 +33,7 @@
   </ion-grid>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="success">
+    <ion-fab-button color="success" [routerLink]="['/posts-form']" >
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

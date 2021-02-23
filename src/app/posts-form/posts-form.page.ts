@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'app-posts-form',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsFormPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private postSvc: PostsService
+  ) { }
 
   ngOnInit() {
   }
 
+
+  guardar(title, description) {
+
+    this.postSvc.createPost(title, description)
+    .subscribe( res => console.info(res))
+  }
 }

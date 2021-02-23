@@ -20,7 +20,8 @@ export class PostsService {
   getPost(){
 
   }
-  createPost(){
-
+  
+  createPost(title: string, description: string){
+    return this.http.post(base_url, { title, description })
   }
 }

@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>posts-form</ion-title>
+    
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/posts"></ion-back-button>
+    </ion-buttons>    
+
+    <ion-title>Crear Publicación</ion-title>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
 
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input #title type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Descripción</ion-label>
+        <ion-input #description type="text"></ion-input>
+      </ion-item>
+
+      <section>
+        <ion-button type="submit" color="success" (click)="guardar(title.value, description.value)" expand="block" fill="outline">
+          Guardaar
+        </ion-button>
+      </section>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
