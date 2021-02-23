@@ -24,4 +24,8 @@ export class PostsService {
   createPost(title: string, description: string){
     return this.http.post(base_url, { title, description })
   }
+
+  deletePost(id: string){
+    return this.http.delete(`${base_url}/${id}`)
+  }
 }

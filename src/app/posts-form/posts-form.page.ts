@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { PostsService } from '../services/posts.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { PostsService } from '../services/posts.service';
 export class PostsFormPage implements OnInit {
 
   constructor(
-    private postSvc: PostsService
+    private postSvc: PostsService,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -18,7 +20,17 @@ export class PostsFormPage implements OnInit {
 
   guardar(title, description) {
 
+
     this.postSvc.createPost(title, description)
-    .subscribe( res => console.info(res))
+    .subscribe( async res => {
+      const alert = await this.alertController.create({
+        header: 'Publicación creada',
+        subHeader: '',
+        message: '',
+        buttons: ['Ok']
+      });
+  
+      await alert.present();
+    })
   }
 }
